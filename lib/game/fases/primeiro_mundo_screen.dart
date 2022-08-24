@@ -1,7 +1,7 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:no_life/game/fases/mundo_esquerdo_1.dart';
-import 'package:no_life/game/sprites/players_testes.dart';
+import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/util/sensor/exit_map_sensor.dart';
 import 'package:no_life/util/widgets/barra_de_cima_fases.dart';
 
@@ -33,7 +33,7 @@ class _PrimeiroMundoScreenState extends State<PrimeiroMundoScreen> {
                     'sensorLeft',
                     (p) => ExitMapSensor('sensorLeft', p.position, p.size,
                         (v) => _exitMap(v, context))),
-              player: Kinght(Vector2(150, 540))),
+              player: CriancaPlayer(Vector2(150, 540))),
           const BarraDeCimaFasesWidget()
         ],
       ),

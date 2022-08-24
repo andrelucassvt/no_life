@@ -72,8 +72,9 @@ flutter:
   - assets/sprites/
   - assets/lotties/
   - assets/images/tile/
+  - assets/images/tile/maps/
   - assets/images/player/
-  - assets/images/map/
+  - assets/images/map/quarto/
   - assets/music/theme/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

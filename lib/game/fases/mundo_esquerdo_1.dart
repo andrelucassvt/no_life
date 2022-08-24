@@ -1,6 +1,6 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
-import 'package:no_life/game/sprites/players_testes.dart';
+import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/util/widgets/barra_de_cima_fases.dart';
 
 class MundoEsquerdo1Screen extends StatefulWidget {
@@ -27,7 +27,7 @@ class _MundoEsquerdo1ScreenState extends State<MundoEsquerdo1Screen> {
               ), // required
               map: TiledWorldMap('tile/mundo_esquerdo_1.json',
                   forceTileSize: const Size(16, 16)),
-              player: Kinght(Vector2(150, 540))),
+              player: CriancaPlayer(Vector2(150, 540))),
           const BarraDeCimaFasesWidget()
         ],
       ),

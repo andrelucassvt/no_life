@@ -26,8 +26,8 @@ class PlayerSpriteSheet {
       );
 }
 
-class Kinght extends SimplePlayer with ObjectCollision {
-  Kinght(Vector2 position)
+class CriancaPlayer extends SimplePlayer with ObjectCollision {
+  CriancaPlayer(Vector2 position)
       : super(
           position: position,
           size: Vector2.all(50),
