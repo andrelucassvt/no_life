@@ -62,14 +62,14 @@ class _MainMenuScreenState extends State<MainMenuScreen>
                         fontWeight: FontWeight.w900),
                   ),
                 ),
-                FadeTransition(
-                  opacity: _animationPressioneAqui,
-                  child: GestureDetector(
-                    onTap: () {
-                      audioMenu.stopMainMenuMusic();
-                      Navigator.of(context).pushReplacement(MaterialPageRoute(
-                          builder: (_) => const PrimeiroMundoScreen()));
-                    },
+                GestureDetector(
+                  onTap: () {
+                    audioMenu.stopMainMenuMusic();
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (_) => const PrimeiroMundoScreen()));
+                  },
+                  child: FadeTransition(
+                    opacity: _animationPressioneAqui,
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: const [

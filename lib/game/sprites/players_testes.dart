@@ -30,7 +30,11 @@ class Kinght extends SimplePlayer with ObjectCollision {
   Kinght(Vector2 position)
       : super(
           position: position,
-          size: Vector2(32, 32),
+          size: Vector2.all(50),
+          speed: 200,
           animation: PlayerSpriteSheet.simpleDirectionAnimation,
-        );
+        ) {
+    setupCollision(CollisionConfig(
+        collisions: [CollisionArea.rectangle(size: Vector2.all(50))]));
+  }
 }
