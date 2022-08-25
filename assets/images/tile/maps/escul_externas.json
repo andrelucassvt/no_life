@@ -1,0 +1,14 @@
+{ "columns":64,
+ "image":"..\/esculturas_externas.png",
+ "imageheight":512,
+ "imagewidth":512,
+ "margin":0,
+ "name":"escul_externas",
+ "spacing":0,
+ "tilecount":4096,
+ "tiledversion":"1.9.1",
+ "tileheight":8,
+ "tilewidth":8,
+ "type":"tileset",
+ "version":"1.8"
+}

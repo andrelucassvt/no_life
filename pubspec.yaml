@@ -75,6 +75,7 @@ flutter:
   - assets/images/tile/maps/
   - assets/images/player/
   - assets/images/map/quarto/
+  - assets/images/map/corredor/
   - assets/music/theme/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
