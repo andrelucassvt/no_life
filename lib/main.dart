@@ -10,6 +10,7 @@ void main() async {
 }
 
 double tamanhoMapaGlobal = 32;
+bool showCollisionArea = false;
 
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);

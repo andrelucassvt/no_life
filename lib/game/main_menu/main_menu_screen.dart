@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:lottie/lottie.dart';
 import 'package:no_life/game/fases/mapas/quarto/quarto_fase.dart';
+import 'package:no_life/util/audio/audio_assets.dart';
 import 'package:no_life/util/audio/main_menu_audio.dart';
 import 'package:no_life/util/main_menu_assets/main_menu_assets.dart';
 import 'package:no_life/util/main_menu_assets/main_menu_strings.dart';
@@ -15,7 +16,7 @@ class MainMenuScreen extends StatefulWidget {
 
 class _MainMenuScreenState extends State<MainMenuScreen>
     with TickerProviderStateMixin {
-  final audioMenu = GetIt.I.get<MainMenuAudio>();
+  final audioMenu = GetIt.I.get<MainAudioGameApp>();
   late final AnimationController _controllerPressioneAqui = AnimationController(
     duration: const Duration(seconds: 1),
     vsync: this,
@@ -28,9 +29,9 @@ class _MainMenuScreenState extends State<MainMenuScreen>
   @override
   void initState() {
     super.initState();
-    audioMenu.playMainMenuMusic();
+    audioMenu.playMainMenuMusic(AudioAssets.temaPrincipal);
     audioMenu.audioPlayer.onPlayerComplete.listen((event) {
-      audioMenu.playMainMenuMusic();
+      audioMenu.playMainMenuMusic(AudioAssets.temaPrincipal);
     });
   }
 

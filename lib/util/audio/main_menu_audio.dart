@@ -1,16 +1,21 @@
-import 'package:audioplayers/audioplayers.dart';
-import 'package:no_life/util/audio/audio_assets.dart';
+import 'dart:io';
 
-class MainMenuAudio {
+import 'package:audioplayers/audioplayers.dart';
+
+class MainAudioGameApp {
   final AudioPlayer audioPlayer;
-  MainMenuAudio({
+  MainAudioGameApp({
     required this.audioPlayer,
   });
-  Future<void> playMainMenuMusic() async {
-    await audioPlayer.play(AssetSource(AudioAssets.temaPrincipal));
+  Future<void> playMainMenuMusic(String nameMusic) async {
+    if (Platform.isIOS) {
+      await audioPlayer.play(AssetSource(nameMusic), volume: 70);
+      return;
+    }
+    await audioPlayer.play(AssetSource(nameMusic));
   }
 
   Future<void> stopMainMenuMusic() async {
-    await audioPlayer.pause();
+    await audioPlayer.stop();
   }
 }

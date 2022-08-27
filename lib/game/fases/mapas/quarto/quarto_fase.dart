@@ -10,7 +10,16 @@ import 'package:no_life/main.dart';
 import 'package:no_life/util/navigator/default_navigator.dart';
 
 class QuartoFase extends StatefulWidget {
-  const QuartoFase({Key? key}) : super(key: key);
+  const QuartoFase(
+      {Key? key,
+      this.mostrarMensagemQuemSouEuInicial = true,
+      this.vetorX,
+      this.vetorY})
+      : super(key: key);
+
+  final bool mostrarMensagemQuemSouEuInicial;
+  final double? vetorX;
+  final double? vetorY;
 
   @override
   State<QuartoFase> createState() => _QuartoFaseState();
@@ -19,23 +28,27 @@ class QuartoFase extends StatefulWidget {
 class _QuartoFaseState extends State<QuartoFase> {
   final controller = BonfireInjector.instance.get<CriancaPlayerController>();
   @override
+  void initState() {
+    super.initState();
+    Future.delayed(const Duration(seconds: 3), () {
+      if (widget.mostrarMensagemQuemSouEuInicial) {
+        controller.mostrarMensagemQuemSouEuInicial();
+      }
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
-      // appBar: AppBar(
-      //   leading: IconButton(
-      //       icon: const Icon(Icons.abc),
-      //       onPressed: () {
-      //         Navigator.of(context).pop();
-      //       }),
-      // ),
       body: LayoutBuilder(builder: (context, constraints) {
         tamanhoMapaGlobal =
             max(constraints.maxHeight, constraints.maxWidth) / 22;
         return BonfireTiledWidget(
-            //showCollisionArea: true,
+            showCollisionArea: showCollisionArea,
             joystick: Joystick(
               directional: JoystickDirectional(),
             ),
+            progress: Container(color: Colors.black),
             //lightingColorGame: Colors.black.withOpacity(0.7), // required
             map: TiledWorldMap('map/quarto/quarto.json',
                 forceTileSize: const Size(16, 16))
@@ -47,8 +60,9 @@ class _QuartoFaseState extends State<QuartoFase> {
                   'saida',
                   (p) => ContatoQuartoSensor('saida', p.position, p.size,
                       (v) => _acaoSensorQuarto(v))),
-            player: CriancaPlayer(
-                Vector2((2 * tamanhoMapaGlobal), (5 * tamanhoMapaGlobal))));
+            player: CriancaPlayer(Vector2(
+                ((widget.vetorX ?? 2) * tamanhoMapaGlobal),
+                ((widget.vetorY ?? 5) * tamanhoMapaGlobal))));
       }),
     );
   }

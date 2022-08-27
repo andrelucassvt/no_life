@@ -8,6 +8,59 @@
  "tilecount":1728,
  "tiledversion":"1.9.1",
  "tileheight":8,
+ "tiles":[
+        {
+         "id":836,
+         "objectgroup":
+            {
+             "draworder":"index",
+             "id":3,
+             "name":"",
+             "objects":[
+                    {
+                     "class":"",
+                     "height":7.51856144857617,
+                     "id":2,
+                     "name":"",
+                     "rotation":0,
+                     "visible":true,
+                     "width":8.14510823595752,
+                     "x":0.313273393690674,
+                     "y":0
+                    }],
+             "opacity":1,
+             "type":"objectgroup",
+             "visible":true,
+             "x":0,
+             "y":0
+            }
+        }, 
+        {
+         "id":837,
+         "objectgroup":
+            {
+             "draworder":"index",
+             "id":3,
+             "name":"",
+             "objects":[
+                    {
+                     "class":"",
+                     "height":7.83183484226685,
+                     "id":2,
+                     "name":"",
+                     "rotation":0,
+                     "visible":true,
+                     "width":7.83183484226685,
+                     "x":0.626546787381348,
+                     "y":0.626546787381348
+                    }],
+             "opacity":1,
+             "type":"objectgroup",
+             "visible":true,
+             "x":0,
+             "y":0
+            }
+        }],
  "tilewidth":8,
  "type":"tileset",
  "version":"1.8"

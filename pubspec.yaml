@@ -76,7 +76,9 @@ flutter:
   - assets/images/player/
   - assets/images/map/quarto/
   - assets/images/map/corredor/
+  - assets/images/map/sala_danca/
   - assets/music/theme/
+  - assets/music/copy/
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg
 

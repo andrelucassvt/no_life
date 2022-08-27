@@ -9,6 +9,6 @@ class GameInject {
     final getIt = GetIt.instance;
     getIt.registerFactory<AudioPlayer>(() => AudioPlayer());
     BonfireInjector().put((i) => CriancaPlayerController());
-    getIt.registerSingleton(MainMenuAudio(audioPlayer: getIt()));
+    getIt.registerSingleton(MainAudioGameApp(audioPlayer: getIt()));
   }
 }
