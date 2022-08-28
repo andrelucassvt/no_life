@@ -13,7 +13,11 @@ class CriancaPlayerController extends StateController<CriancaPlayer> {
     component?.mostrarMensagemQuemSouEuInicial();
   }
 
-  void mostrarCartaGato() {
-    component?.mostrarCartaGato();
+  void lerPrimeiroContatoGatoSalaDanca() {
+    component?.lerPrimeiroContatoGatoSalaDanca();
+  }
+
+  void falaDoGatoSalaTresPortas() {
+    component?.falaDoGatoSalaTresPortas();
   }
 }

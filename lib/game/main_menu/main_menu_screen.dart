@@ -30,9 +30,6 @@ class _MainMenuScreenState extends State<MainMenuScreen>
   void initState() {
     super.initState();
     audioMenu.playMainMenuMusic(AudioAssets.temaPrincipal);
-    audioMenu.audioPlayer.onPlayerComplete.listen((event) {
-      audioMenu.playMainMenuMusic(AudioAssets.temaPrincipal);
-    });
   }
 
   @override

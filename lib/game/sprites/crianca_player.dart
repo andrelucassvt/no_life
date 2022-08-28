@@ -52,7 +52,8 @@ class CriancaPlayer extends SimplePlayer
     ]));
   }
 
-  void mostrarCartaGato() {
+  /// Falas do personagem  e CARTA do gato //////
+  void lerPrimeiroContatoGatoSalaDanca() {
     gameRef.camera.moveToPlayerAnimated(
       zoom: 2,
       finish: () {
@@ -149,6 +150,97 @@ class CriancaPlayer extends SimplePlayer
                 ),
                 const TextSpan(
                   text: 'Que lugar é esse ?',
+                ),
+              ],
+              person: SizedBox(
+                width: 100,
+                height: 100,
+                child: PlayerSpriteSheet.idleRight.asWidget(),
+              ),
+            ),
+          ],
+          onClose: () {
+            if (!isDead) {
+              gameRef.camera.moveToPlayerAnimated(zoom: 1);
+            }
+          },
+          onFinish: () {},
+        );
+      },
+    );
+  }
+
+  void falaDoGatoSalaTresPortas() {
+    gameRef.camera.moveToPlayerAnimated(
+      zoom: 2,
+      finish: () {
+        TalkDialog.show(
+          gameRef.context,
+          [
+            Say(
+              text: [
+                const TextSpan(
+                    text: 'Gato malus\n', style: TextStyle(color: Colors.red)),
+                const TextSpan(
+                  text:
+                      '"Aqui começa sua jornada por 3 folhas do diário perdido que estão nas portas a sua frente"',
+                ),
+              ],
+              person: SizedBox(
+                width: 100,
+                height: 100,
+                child: PlayerSpriteSheet.idleRight.asWidget(),
+              ),
+            ),
+            Say(
+              text: [
+                const TextSpan(
+                    text: '"Cada porta é um reino e um desafio diferente"'),
+              ],
+              person: SizedBox(
+                width: 100,
+                height: 100,
+                child: PlayerSpriteSheet.idleRight.asWidget(),
+              ),
+            ),
+            Say(
+              text: [
+                const TextSpan(
+                  text: '"Porta',
+                ),
+                const TextSpan(
+                    text: ' vermelha:\n"', style: TextStyle(color: Colors.red)),
+                const TextSpan(
+                  text: '"Nessa porta se encontra o desafio chamado',
+                ),
+                const TextSpan(
+                    text: ' Caminho da Lava"',
+                    style: TextStyle(color: Colors.red)),
+              ],
+              person: SizedBox(
+                width: 100,
+                height: 100,
+                child: PlayerSpriteSheet.idleRight.asWidget(),
+              ),
+            ),
+            Say(
+              text: [
+                const TextSpan(
+                  text:
+                      '"Passe por todos os caminhos e recupere a folha do diário"',
+                ),
+              ],
+              person: SizedBox(
+                width: 100,
+                height: 100,
+                child: PlayerSpriteSheet.idleRight.asWidget(),
+              ),
+            ),
+            Say(
+              text: [
+                const TextSpan(
+                  text:
+                      '------ A DESCRIÇÃO DAS OUTRAS PORTAS NÃO ESTÃO DISPONIVELS NESSE BETA -----',
                 ),
               ],
               person: SizedBox(

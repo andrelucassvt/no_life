@@ -4,6 +4,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:no_life/game/fases/mapas/corredor/corredor_fase.dart';
+import 'package:no_life/game/fases/mapas/sala_tres_portas/sala_tres_portas_fase.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/game/sprites/crianca_player_controller.dart';
 import 'package:no_life/main.dart';
@@ -13,8 +14,9 @@ import 'package:no_life/util/navigator/default_navigator.dart';
 import 'package:no_life/util/sensor/exit_map_sensor.dart';
 
 class SalaDancaFase extends StatefulWidget {
-  const SalaDancaFase({Key? key}) : super(key: key);
-
+  const SalaDancaFase({Key? key, this.vetorX, this.vetorY}) : super(key: key);
+  final double? vetorX;
+  final double? vetorY;
   @override
   State<SalaDancaFase> createState() => _SalaDancaFaseState();
 }
@@ -26,9 +28,6 @@ class _SalaDancaFaseState extends State<SalaDancaFase> {
   void initState() {
     super.initState();
     audioMenu.playMainMenuMusic(AudioAssets.salaDeDanca);
-    audioMenu.audioPlayer.onPlayerComplete.listen((event) {
-      audioMenu.playMainMenuMusic(AudioAssets.salaDeDanca);
-    });
   }
 
   @override
@@ -51,11 +50,16 @@ class _SalaDancaFaseState extends State<SalaDancaFase> {
                   (p) => ExitMapSensor(
                       'corredor', p.position, p.size, (v) => _acaoSensor(v)))
               ..registerObject(
+                  'salaPortas',
+                  (p) => ExitMapSensor(
+                      'salaPortas', p.position, p.size, (v) => _acaoSensor(v)))
+              ..registerObject(
                   'cartaGato',
                   (p) => ExitMapSensor(
                       'cartaGato', p.position, p.size, (v) => _acaoSensor(v))),
-            player: CriancaPlayer(
-                Vector2((4 * tamanhoMapaGlobal), (5 * tamanhoMapaGlobal))));
+            player: CriancaPlayer(Vector2(
+                ((widget.vetorX ?? 4) * tamanhoMapaGlobal),
+                ((widget.vetorY ?? 5) * tamanhoMapaGlobal))));
       }),
     );
   }
@@ -65,7 +69,13 @@ class _SalaDancaFaseState extends State<SalaDancaFase> {
       audioMenu.stopMainMenuMusic();
       DefaultNavigator.nevagarParaOutrosMapas(context, const CorredorFase());
     } else if (value == 'cartaGato') {
-      controller.mostrarCartaGato();
+      controller.lerPrimeiroContatoGatoSalaDanca();
+    } else if (value == 'salaPortas') {
+      DefaultNavigator.nevagarParaOutrosMapas(
+          context,
+          SalaTresPortasFase(
+            vector2: Vector2(4, 13),
+          ));
     }
   }
 }
