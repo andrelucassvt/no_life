@@ -72,11 +72,13 @@ flutter:
   - assets/sprites/
   - assets/lotties/
   - assets/images/tile/
+  - assets/images/
   - assets/images/tile/maps/
   - assets/images/player/
   - assets/images/map/quarto/
   - assets/images/map/corredor/
   - assets/images/map/sala_danca/
+  - assets/images/enemy/
   - assets/images/map/sala_tres_portas/
   - assets/images/map/sala_tres_portas/portas/caminhoLava/
   - assets/audio/theme/

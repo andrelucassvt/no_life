@@ -39,9 +39,17 @@ class _CaminhoLavaFasesState extends State<CaminhoLavaFases> {
             showCollisionArea: showCollisionArea,
             joystick: Joystick(
               directional: JoystickDirectional(),
+              actions: [
+                JoystickAction(
+                  actionId: PlayerAttackCrianca.perto,
+                  sprite: Sprite.load('joystick_atack.png'),
+                  align: JoystickActionAlign.BOTTOM_RIGHT,
+                  size: 80,
+                  margin: const EdgeInsets.only(bottom: 50, right: 50),
+                ),
+              ],
             ),
             progress: Container(color: Colors.black),
-            //lightingColorGame: Colors.black.withOpacity(0.7), // required
             map: TiledWorldMap(
                 'map/sala_tres_portas/portas/caminhoLava/caminho_lava_$faseIniticialIndex.json',
                 forceTileSize: const Size(16, 16))

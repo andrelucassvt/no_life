@@ -1,6 +1,9 @@
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:no_life/game/sprites/crianca_player_controller.dart';
+import 'package:no_life/main.dart';
+
+enum PlayerAttackCrianca { longe, perto }
 
 class PlayerSpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
@@ -21,6 +24,39 @@ class PlayerSpriteSheet {
         ),
       );
 
+  static Future<SpriteAnimation> get attackBottom => SpriteAnimation.load(
+        "player/atack_effect_bottom.png",
+        SpriteAnimationData.sequenced(
+          amount: 6,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+        ),
+      );
+  static Future<SpriteAnimation> get attackTop => SpriteAnimation.load(
+        "player/atack_effect_top.png",
+        SpriteAnimationData.sequenced(
+          amount: 6,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+        ),
+      );
+  static Future<SpriteAnimation> get attackLeft => SpriteAnimation.load(
+        "player/atack_effect_left.png",
+        SpriteAnimationData.sequenced(
+          amount: 6,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+        ),
+      );
+  static Future<SpriteAnimation> get attackRight => SpriteAnimation.load(
+        "player/atack_effect_right.png",
+        SpriteAnimationData.sequenced(
+          amount: 6,
+          stepTime: 0.1,
+          textureSize: Vector2(16, 16),
+        ),
+      );
+
   static SimpleDirectionAnimation get simpleDirectionAnimation =>
       SimpleDirectionAnimation(
         idleRight: idleRight,
@@ -28,6 +64,7 @@ class PlayerSpriteSheet {
       );
 }
 
+////////////////
 class CriancaPlayer extends SimplePlayer
     with
         ObjectCollision,
@@ -50,6 +87,25 @@ class CriancaPlayer extends SimplePlayer
     setupCollision(CollisionConfig(collisions: [
       CollisionArea.rectangle(size: Vector2(30, 20), align: Vector2(12, 25))
     ]));
+  }
+
+  @override
+  void joystickAction(JoystickActionEvent event) {
+    if (hasController) {
+      controller.atacar(event);
+    }
+    super.joystickAction(event);
+  }
+
+  void execAttack(double attack) {
+    simpleAttackMelee(
+      damage: attack,
+      animationDown: PlayerSpriteSheet.attackBottom,
+      animationLeft: PlayerSpriteSheet.attackLeft,
+      animationRight: PlayerSpriteSheet.attackRight,
+      animationUp: PlayerSpriteSheet.attackTop,
+      size: Vector2.all(tamanhoMapaGlobal),
+    );
   }
 
   /// Falas do personagem  e CARTA do gato //////

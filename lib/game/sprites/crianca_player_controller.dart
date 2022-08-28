@@ -20,4 +20,10 @@ class CriancaPlayerController extends StateController<CriancaPlayer> {
   void falaDoGatoSalaTresPortas() {
     component?.falaDoGatoSalaTresPortas();
   }
+
+  void atacar(JoystickActionEvent event) {
+    if (event.id == PlayerAttackCrianca.perto) {
+      component?.execAttack(20);
+    }
+  }
 }
