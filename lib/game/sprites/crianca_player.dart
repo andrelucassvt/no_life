@@ -7,7 +7,7 @@ enum PlayerAttackCrianca { longe, perto }
 
 class PlayerSpriteSheet {
   static Future<SpriteAnimation> get idleRight => SpriteAnimation.load(
-        "player/knight_idle.png",
+        "player/crianca_idle.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,
@@ -16,7 +16,7 @@ class PlayerSpriteSheet {
       );
 
   static Future<SpriteAnimation> get runRight => SpriteAnimation.load(
-        "player/knight_run.png",
+        "player/crianca_run.png",
         SpriteAnimationData.sequenced(
           amount: 6,
           stepTime: 0.1,

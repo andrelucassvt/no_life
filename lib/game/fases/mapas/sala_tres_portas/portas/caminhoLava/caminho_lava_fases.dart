@@ -27,7 +27,7 @@ class _CaminhoLavaFasesState extends State<CaminhoLavaFases> {
     audioMenu.playMainMenuMusic(AudioAssets.salaCaminhoLava);
   }
 
-  int faseIniticialIndex = 1;
+  int faseIniticialIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -52,13 +52,13 @@ class _CaminhoLavaFasesState extends State<CaminhoLavaFases> {
             progress: Container(color: Colors.black),
             map: TiledWorldMap(
                 'map/sala_tres_portas/portas/caminhoLava/caminho_lava_$faseIniticialIndex.json',
-                forceTileSize: const Size(16, 16))
+                forceTileSize: const Size(25, 25))
               ..registerObject(
                   'lava',
                   (p) => ExitMapSensor(
                       'lava', p.position, p.size, (v) => _acaoSensor(v))),
-            player: CriancaPlayer(
-                Vector2(((4) * tamanhoMapaGlobal), ((5) * tamanhoMapaGlobal))));
+            player: CriancaPlayer(Vector2(
+                ((33) * tamanhoMapaGlobal), ((58) * tamanhoMapaGlobal))));
       }),
     );
   }

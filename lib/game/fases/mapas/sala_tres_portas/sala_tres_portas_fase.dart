@@ -77,8 +77,8 @@ class _SalaTresPortasFaseState extends State<SalaTresPortasFase> {
           ));
     } else if (value == 'caminhoLava') {
       await audioMenu.stopMainMenuMusic();
-      DefaultNavigator.nevagarParaOutrosMapas(
-          context, const CaminhoLavaFases());
+      DefaultNavigator.nevagarParaOutrosMapas(context, const CaminhoLavaFases(),
+          removerTelaAnterior: false);
     }
   }
 }
