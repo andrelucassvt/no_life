@@ -4,7 +4,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:no_life/game/fases/mapas/sala_danca/sala_danca_fase.dart';
-import 'package:no_life/game/fases/mapas/sala_tres_portas/portas/caminhoLava/caminho_lava_fases.dart';
+import 'package:no_life/game/fases/mapas/sala_tres_portas/portas/sala_enigma_sepulturas/sala_enigma_sepulturas.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/game/sprites/crianca_player_controller.dart';
 import 'package:no_life/main.dart';
@@ -36,8 +36,10 @@ class _SalaTresPortasFaseState extends State<SalaTresPortasFase> {
             ),
             progress: Container(color: Colors.black),
             //lightingColorGame: Colors.black.withOpacity(0.7), // required
-            map: TiledWorldMap('map/sala_tres_portas/sala_tres_portas.json',
-                forceTileSize: const Size(12, 12))
+            map: TiledWorldMap(
+              'map/sala_tres_portas/sala_tres_portas.json',
+              forceTileSize: const Size(12, 12),
+            )
               ..registerObject(
                   'gato',
                   (p) => ExitMapSensor(
@@ -47,9 +49,9 @@ class _SalaTresPortasFaseState extends State<SalaTresPortasFase> {
                   (p) => ExitMapSensor(
                       'salaDanca', p.position, p.size, (v) => _acaoSensor(v)))
               ..registerObject(
-                  'caminhoLava',
-                  (p) => ExitMapSensor(
-                      'caminhoLava', p.position, p.size, (v) => _acaoSensor(v)))
+                  'caminhoSepulturas',
+                  (p) => ExitMapSensor('caminhoSepulturas', p.position, p.size,
+                      (v) => _acaoSensor(v)))
               ..registerObject(
                   '_',
                   (p) => ExitMapSensor(
@@ -75,10 +77,10 @@ class _SalaTresPortasFaseState extends State<SalaTresPortasFase> {
             vetorX: 13,
             vetorY: 13,
           ));
-    } else if (value == 'caminhoLava') {
+    } else if (value == 'caminhoSepulturas') {
       await audioMenu.stopMainMenuMusic();
-      DefaultNavigator.nevagarParaOutrosMapas(context, const CaminhoLavaFases(),
-          removerTelaAnterior: false);
+      DefaultNavigator.nevagarParaOutrosMapas(
+          context, const SalaEnigmaSepulturas());
     }
   }
 }
