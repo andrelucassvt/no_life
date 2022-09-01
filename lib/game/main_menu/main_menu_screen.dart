@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get_it/get_it.dart';
 import 'package:lottie/lottie.dart';
-import 'package:no_life/game/fases/mapas/quarto/quarto_fase.dart';
+import 'package:no_life/game/fases/mapas/sala_tres_portas/portas/sala_enigma_sepulturas/sala_enigma_sepulturas.dart';
 import 'package:no_life/util/audio/audio_assets.dart';
 import 'package:no_life/util/audio/main_menu_audio.dart';
 import 'package:no_life/util/main_menu_assets/main_menu_assets.dart';
@@ -63,8 +63,8 @@ class _MainMenuScreenState extends State<MainMenuScreen>
                 GestureDetector(
                   onTap: () {
                     audioMenu.stopMainMenuMusic();
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (_) => const QuartoFase()));
+                    Navigator.of(context).pushReplacement(MaterialPageRoute(
+                        builder: (_) => const SalaEnigmaSepulturas()));
                   },
                   child: FadeTransition(
                     opacity: _animationPressioneAqui,

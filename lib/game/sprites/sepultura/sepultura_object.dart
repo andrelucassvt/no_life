@@ -10,21 +10,18 @@ class ObjectSepulturasSpriteSheet {
 
 class SepulturaObject extends GameDecoration
     with DragGesture, ObjectCollision, Movement, Pushable {
-  SepulturaObject({required Vector2 position, required Future<Sprite> sprite})
+  String valueName;
+  SepulturaObject(
+      {required Vector2 position,
+      required Future<Sprite> sprite,
+      required this.valueName})
       : super.withSprite(
             sprite: sprite, position: position, size: Vector2.all(50)) {
     setupCollision(
       CollisionConfig(
         collisions: [
           CollisionArea.rectangle(
-            size: Vector2(
-              32 * 0.6,
-              32 * 0.4,
-            ),
-            align: Vector2(
-              32 * 0.2,
-              32 * 0.4,
-            ),
+            size: Vector2.all(50),
           ),
         ],
       ),
