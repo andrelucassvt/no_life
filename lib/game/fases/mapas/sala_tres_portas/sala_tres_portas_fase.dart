@@ -69,7 +69,7 @@ class _SalaTresPortasFaseState extends State<SalaTresPortasFase> {
 
   Future<void> _acaoSensor(String value) async {
     if (value == 'gato') {
-      controller.falaDoGatoSalaTresPortas();
+      controller.lerfalaDoGatoSalaTresPortas();
     } else if (value == 'salaDanca') {
       DefaultNavigator.nevagarParaOutrosMapas(
           context,

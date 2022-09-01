@@ -69,7 +69,7 @@ class _QuartoFaseState extends State<QuartoFase> {
 
   void _acaoSensorQuarto(String value) {
     if (value == 'cartaAviso') {
-      controller.mostrarMensagemDaCartaInicial();
+      controller.lerMensagemDaCartaInicial();
     } else if (value == 'saida') {
       DefaultNavigator.nevagarParaOutrosMapas(context, const CorredorFase());
     }

@@ -357,6 +357,17 @@
                  "width":23.4628390035194,
                  "x":40.7149265061072,
                  "y":120.764612518115
+                }, 
+                {
+                 "class":"",
+                 "height":15.3171935497596,
+                 "id":29,
+                 "name":"buscarFolha",
+                 "rotation":0,
+                 "visible":true,
+                 "width":37.4420286771902,
+                 "x":73.1821469599626,
+                 "y":40.4203718674212
                 }],
          "opacity":1,
          "type":"objectgroup",
@@ -491,7 +502,7 @@
          "y":0
         }],
  "nextlayerid":8,
- "nextobjectid":29,
+ "nextobjectid":30,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.9.1",

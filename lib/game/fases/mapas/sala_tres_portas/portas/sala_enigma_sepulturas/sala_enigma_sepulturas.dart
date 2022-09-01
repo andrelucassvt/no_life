@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:no_life/game/fases/mapas/sala_tres_portas/portas/sala_enigma_sepulturas/folha_sepultura.dart';
 import 'package:no_life/game/fases/mapas/sala_tres_portas/portas/sala_enigma_sepulturas/sensor/sensor_sepultura.dart';
 import 'package:no_life/game/fases/mapas/sala_tres_portas/sala_tres_portas_fase.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
@@ -31,8 +32,6 @@ class _SalaEnigmaSepulturasState extends State<SalaEnigmaSepulturas> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      floatingActionButton:
-          FloatingActionButton(onPressed: () => portaController.abrirPorta()),
       body: LayoutBuilder(builder: (context, constraints) {
         tamanhoMapaGlobal =
             max(constraints.maxHeight, constraints.maxWidth) / 22;
@@ -97,7 +96,15 @@ class _SalaEnigmaSepulturasState extends State<SalaEnigmaSepulturas> {
               ..registerObject(
                   'sair',
                   (p) => ExitMapSensor(
-                      'sair', p.position, p.size, (v) => _acaoSensor(v))),
+                      'sair', p.position, p.size, (v) => _acaoSensor(v)))
+              ..registerObject(
+                  'carta',
+                  (p) => ExitMapSensor(
+                      'carta', p.position, p.size, (v) => _acaoSensor(v)))
+              ..registerObject(
+                  'buscarFolha',
+                  (p) => ExitMapSensor('buscarFolha', p.position, p.size,
+                      (v) => _acaoSensor(v))),
             player: CriancaPlayer(
                 Vector2(((4) * tamanhoMapaGlobal), ((5) * tamanhoMapaGlobal))));
       }),
@@ -108,6 +115,11 @@ class _SalaEnigmaSepulturasState extends State<SalaEnigmaSepulturas> {
     if (value == 'sair') {
       DefaultNavigator.nevagarParaOutrosMapas(
           context, const SalaTresPortasFase());
+    } else if (value == 'buscarFolha') {
+      DefaultNavigator.nevagarParaOutrosMapas(
+          context, const FolhaSepulturaFase());
+    } else if (value == 'carta') {
+      playerController.lerMensagemSepulturaDicaEnigma();
     }
   }
 

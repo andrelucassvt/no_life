@@ -5,8 +5,8 @@ class CriancaPlayerController extends StateController<CriancaPlayer> {
   @override
   void update(double dt, CriancaPlayer component) {}
 
-  void mostrarMensagemDaCartaInicial() {
-    component?.mostrarMensagemDaCartaInicial();
+  void lerMensagemDaCartaInicial() {
+    component?.lerMensagemDaCartaInicial();
   }
 
   void mostrarMensagemQuemSouEuInicial() {
@@ -17,13 +17,11 @@ class CriancaPlayerController extends StateController<CriancaPlayer> {
     component?.lerPrimeiroContatoGatoSalaDanca();
   }
 
-  void falaDoGatoSalaTresPortas() {
-    component?.falaDoGatoSalaTresPortas();
+  void lerfalaDoGatoSalaTresPortas() {
+    component?.lerfalaDoGatoSalaTresPortas();
   }
 
-  void atacar(JoystickActionEvent event) {
-    if (event.id == PlayerAttackCrianca.perto) {
-      component?.execAttack(20);
-    }
+  void lerMensagemSepulturaDicaEnigma() {
+    component?.lerMensagemSepulturaDicaEnigma();
   }
 }
