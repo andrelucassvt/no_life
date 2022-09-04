@@ -105,8 +105,8 @@ class _SalaEnigmaSepulturasState extends State<SalaEnigmaSepulturas> {
                   'buscarFolha',
                   (p) => ExitMapSensor('buscarFolha', p.position, p.size,
                       (v) => _acaoSensor(v))),
-            player: CriancaPlayer(
-                Vector2(((4) * tamanhoMapaGlobal), ((5) * tamanhoMapaGlobal))));
+            player: CriancaPlayer(Vector2(
+                ((15) * tamanhoMapaGlobal), ((13) * tamanhoMapaGlobal))));
       }),
     );
   }
@@ -114,7 +114,10 @@ class _SalaEnigmaSepulturasState extends State<SalaEnigmaSepulturas> {
   void _acaoSensor(String value) {
     if (value == 'sair') {
       DefaultNavigator.nevagarParaOutrosMapas(
-          context, const SalaTresPortasFase());
+          context,
+          SalaTresPortasFase(
+            vector2: Vector2(12, 6),
+          ));
     } else if (value == 'buscarFolha') {
       DefaultNavigator.nevagarParaOutrosMapas(
           context, const FolhaSepulturaFase());
