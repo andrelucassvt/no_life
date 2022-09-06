@@ -32,7 +32,7 @@ class _FolhaSepulturaFaseState extends State<FolhaSepulturaFase> {
               forceTileSize: const Size(12, 12),
             )..registerObject(
                 'folha',
-                (p) => ExitMapSensor(
+                (p) => SensorObject(
                     'folha', p.position, p.size, (v) => _acaoSensor(v))),
             player: CriancaPlayer(Vector2(
                 ((8) * tamanhoMapaGlobal), ((13) * tamanhoMapaGlobal))));

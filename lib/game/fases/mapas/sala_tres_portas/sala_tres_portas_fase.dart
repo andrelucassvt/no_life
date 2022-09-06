@@ -42,23 +42,23 @@ class _SalaTresPortasFaseState extends State<SalaTresPortasFase> {
             )
               ..registerObject(
                   'gato',
-                  (p) => ExitMapSensor(
+                  (p) => SensorObject(
                       'gato', p.position, p.size, (v) => _acaoSensor(v)))
               ..registerObject(
                   'salaDanca',
-                  (p) => ExitMapSensor(
+                  (p) => SensorObject(
                       'salaDanca', p.position, p.size, (v) => _acaoSensor(v)))
               ..registerObject(
                   'caminhoSepulturas',
-                  (p) => ExitMapSensor('caminhoSepulturas', p.position, p.size,
+                  (p) => SensorObject('caminhoSepulturas', p.position, p.size,
                       (v) => _acaoSensor(v)))
               ..registerObject(
                   '_',
-                  (p) => ExitMapSensor(
+                  (p) => SensorObject(
                       '_', p.position, p.size, (v) => _acaoSensor(v)))
               ..registerObject(
                   '_',
-                  (p) => ExitMapSensor(
+                  (p) => SensorObject(
                       '_', p.position, p.size, (v) => _acaoSensor(v))),
             player: CriancaPlayer(Vector2(
                 ((widget.vector2?.x ?? 4) * tamanhoMapaGlobal),
@@ -78,7 +78,7 @@ class _SalaTresPortasFaseState extends State<SalaTresPortasFase> {
             vetorY: 13,
           ));
     } else if (value == 'caminhoSepulturas') {
-      await audioMenu.stopMainMenuMusic();
+      //await audioMenu.stopMainMenuMusic();
       DefaultNavigator.nevagarParaOutrosMapas(
           context, const SalaEnigmaSepulturas());
     }

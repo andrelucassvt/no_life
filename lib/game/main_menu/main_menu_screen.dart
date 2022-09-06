@@ -6,6 +6,7 @@ import 'package:no_life/util/audio/audio_assets.dart';
 import 'package:no_life/util/audio/main_menu_audio.dart';
 import 'package:no_life/util/main_menu_assets/main_menu_assets.dart';
 import 'package:no_life/util/main_menu_assets/main_menu_strings.dart';
+import 'package:no_life/util/navigator/default_navigator.dart';
 
 class MainMenuScreen extends StatefulWidget {
   const MainMenuScreen({Key? key}) : super(key: key);
@@ -63,8 +64,8 @@ class _MainMenuScreenState extends State<MainMenuScreen>
                 GestureDetector(
                   onTap: () {
                     audioMenu.stopMainMenuMusic();
-                    Navigator.of(context).pushReplacement(
-                        MaterialPageRoute(builder: (_) => const QuartoFase()));
+                    DefaultNavigator.nevagarParaOutrosMapas(
+                        context, const QuartoFase());
                   },
                   child: FadeTransition(
                     opacity: _animationPressioneAqui,

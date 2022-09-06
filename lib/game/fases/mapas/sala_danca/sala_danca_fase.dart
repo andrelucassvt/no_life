@@ -47,15 +47,15 @@ class _SalaDancaFaseState extends State<SalaDancaFase> {
                 forceTileSize: const Size(12, 12))
               ..registerObject(
                   'corredor',
-                  (p) => ExitMapSensor(
+                  (p) => SensorObject(
                       'corredor', p.position, p.size, (v) => _acaoSensor(v)))
               ..registerObject(
                   'salaPortas',
-                  (p) => ExitMapSensor(
+                  (p) => SensorObject(
                       'salaPortas', p.position, p.size, (v) => _acaoSensor(v)))
               ..registerObject(
                   'cartaGato',
-                  (p) => ExitMapSensor(
+                  (p) => SensorObject(
                       'cartaGato', p.position, p.size, (v) => _acaoSensor(v))),
             player: CriancaPlayer(Vector2(
                 ((widget.vetorX ?? 4) * tamanhoMapaGlobal),
@@ -66,7 +66,7 @@ class _SalaDancaFaseState extends State<SalaDancaFase> {
 
   void _acaoSensor(String value) {
     if (value == 'corredor') {
-      audioMenu.stopMainMenuMusic();
+      //audioMenu.stopMainMenuMusic();
       DefaultNavigator.nevagarParaOutrosMapas(context, const CorredorFase());
     } else if (value == 'cartaGato') {
       controller.lerPrimeiroContatoGatoSalaDanca();

@@ -37,15 +37,15 @@ class _CorredorFaseState extends State<CorredorFase> {
                 forceTileSize: const Size(12, 12))
               ..registerObject(
                   'quarto',
-                  (p) => ExitMapSensor(
+                  (p) => SensorObject(
                       'quarto', p.position, p.size, (v) => _acaoSensor(v)))
               ..registerObject(
                   'quartoHospedes',
-                  (p) => ExitMapSensor('quartoHospedes', p.position, p.size,
+                  (p) => SensorObject('quartoHospedes', p.position, p.size,
                       (v) => _acaoSensor(v)))
               ..registerObject(
                   'irSalaDanca',
-                  (p) => ExitMapSensor('irSalaDanca', p.position, p.size,
+                  (p) => SensorObject('irSalaDanca', p.position, p.size,
                       (v) => _acaoSensor(v))),
             player: CriancaPlayer(Vector2(
                 ((widget.vector2?.x ?? 4) * tamanhoMapaGlobal),
