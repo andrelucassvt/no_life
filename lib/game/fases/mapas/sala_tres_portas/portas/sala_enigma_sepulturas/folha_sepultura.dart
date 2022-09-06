@@ -4,7 +4,7 @@ import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/main.dart';
-import 'package:no_life/util/sensor/exit_map_sensor.dart';
+import 'package:no_life/util/sensor/sensor_object.dart';
 
 class FolhaSepulturaFase extends StatefulWidget {
   const FolhaSepulturaFase({Key? key}) : super(key: key);

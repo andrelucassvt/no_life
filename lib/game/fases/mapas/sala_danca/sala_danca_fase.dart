@@ -11,7 +11,7 @@ import 'package:no_life/main.dart';
 import 'package:no_life/util/audio/audio_assets.dart';
 import 'package:no_life/util/audio/main_menu_audio.dart';
 import 'package:no_life/util/navigator/default_navigator.dart';
-import 'package:no_life/util/sensor/exit_map_sensor.dart';
+import 'package:no_life/util/sensor/sensor_object.dart';
 
 class SalaDancaFase extends StatefulWidget {
   const SalaDancaFase({Key? key, this.vetorX, this.vetorY}) : super(key: key);

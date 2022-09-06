@@ -10,7 +10,7 @@ import 'package:no_life/game/sprites/crianca_player_controller.dart';
 import 'package:no_life/main.dart';
 import 'package:no_life/util/audio/main_menu_audio.dart';
 import 'package:no_life/util/navigator/default_navigator.dart';
-import 'package:no_life/util/sensor/exit_map_sensor.dart';
+import 'package:no_life/util/sensor/sensor_object.dart';
 
 class SalaTresPortasFase extends StatefulWidget {
   const SalaTresPortasFase({Key? key, this.vector2}) : super(key: key);

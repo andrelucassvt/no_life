@@ -8,7 +8,7 @@ import 'package:no_life/game/fases/mapas/sala_danca/sala_danca_fase.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/main.dart';
 import 'package:no_life/util/navigator/default_navigator.dart';
-import 'package:no_life/util/sensor/exit_map_sensor.dart';
+import 'package:no_life/util/sensor/sensor_object.dart';
 
 class CorredorFase extends StatefulWidget {
   const CorredorFase({Key? key, this.vector2}) : super(key: key);

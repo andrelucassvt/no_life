@@ -7,7 +7,7 @@ import 'package:no_life/game/sprites/cama/cama_object.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/main.dart';
 import 'package:no_life/util/navigator/default_navigator.dart';
-import 'package:no_life/util/sensor/exit_map_sensor.dart';
+import 'package:no_life/util/sensor/sensor_object.dart';
 import 'package:no_life/util/widgets/aviso_dica_widget.dart';
 
 class QuartoHospedes extends StatefulWidget {
