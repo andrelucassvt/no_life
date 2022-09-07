@@ -12,4 +12,6 @@ class AudioAssets {
   static String get salaDeDanca => caminhoAudioCopy('chopin');
 
   static String get salaCaminhoLava => caminhoAudioTheme('caminhoLavaTheme');
+
+  static String get ambienteCasa => caminhoAudioTheme('ambiente_casa');
 }

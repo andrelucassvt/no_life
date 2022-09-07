@@ -36,7 +36,7 @@ class _QuartoHospedesState extends State<QuartoHospedes> {
               ),
               progress: Container(color: Colors.black),
               map: TiledWorldMap('map/quarto_hospedes/quarto_hospedes.json',
-                  forceTileSize: const Size(12, 12),
+                  forceTileSize: const Size(16, 16),
                   objectsBuilder: {
                     'cama': (properties) =>
                         CamaObject(position: properties.position)

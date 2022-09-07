@@ -2,11 +2,13 @@ import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:no_life/game/fases/mapas/quarto/quarto_fase.dart';
 import 'package:no_life/game/fases/mapas/quarto_hospedes/quarto_hospedes.dart';
 import 'package:no_life/game/fases/mapas/sala_danca/sala_danca_fase.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/main.dart';
+import 'package:no_life/util/audio/main_menu_audio.dart';
 import 'package:no_life/util/navigator/default_navigator.dart';
 import 'package:no_life/util/sensor/sensor_object.dart';
 
@@ -20,6 +22,7 @@ class CorredorFase extends StatefulWidget {
 }
 
 class _CorredorFaseState extends State<CorredorFase> {
+  final audioMenu = GetIt.I.get<MainAudioGameApp>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,8 +57,9 @@ class _CorredorFaseState extends State<CorredorFase> {
     );
   }
 
-  void _acaoSensor(String value) {
+  void _acaoSensor(String value) async {
     if (value == 'quarto') {
+      await audioMenu.stopMainMenuMusic();
       DefaultNavigator.nevagarParaOutrosMapas(
           context,
           const QuartoFase(
@@ -64,6 +68,7 @@ class _CorredorFaseState extends State<CorredorFase> {
             vetorY: 10,
           ));
     } else if (value == 'irSalaDanca') {
+      await audioMenu.stopMainMenuMusic();
       DefaultNavigator.nevagarParaOutrosMapas(context, const SalaDancaFase());
     } else if (value == 'quartoHospedes') {
       DefaultNavigator.nevagarParaOutrosMapas(context, const QuartoHospedes());

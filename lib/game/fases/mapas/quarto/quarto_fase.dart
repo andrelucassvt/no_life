@@ -2,11 +2,14 @@ import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:no_life/game/fases/mapas/corredor/corredor_fase.dart';
 import 'package:no_life/game/fases/mapas/quarto/sensor/contato_carta.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/game/sprites/crianca_player_controller.dart';
 import 'package:no_life/main.dart';
+import 'package:no_life/util/audio/audio_assets.dart';
+import 'package:no_life/util/audio/main_menu_audio.dart';
 import 'package:no_life/util/navigator/default_navigator.dart';
 
 class QuartoFase extends StatefulWidget {
@@ -27,10 +30,12 @@ class QuartoFase extends StatefulWidget {
 
 class _QuartoFaseState extends State<QuartoFase> {
   final controller = BonfireInjector.instance.get<CriancaPlayerController>();
+  final audioMenu = GetIt.I.get<MainAudioGameApp>();
   @override
   void initState() {
     super.initState();
-    Future.delayed(const Duration(seconds: 1), () {
+    audioMenu.playMainMenuMusic(AudioAssets.ambienteCasa);
+    Future.delayed(const Duration(seconds: 2), () {
       if (widget.mostrarMensagemQuemSouEuInicial) {
         controller.mostrarMensagemQuemSouEuInicial();
       }

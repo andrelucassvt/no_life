@@ -78,7 +78,7 @@ class _SalaTresPortasFaseState extends State<SalaTresPortasFase> {
             vetorY: 13,
           ));
     } else if (value == 'caminhoSepulturas') {
-      //await audioMenu.stopMainMenuMusic();
+      //wait audioMenu.stopMainMenuMusic();
       DefaultNavigator.nevagarParaOutrosMapas(
           context, const SalaEnigmaSepulturas());
     }
