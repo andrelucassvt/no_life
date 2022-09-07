@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:get_it/get_it.dart';
 import 'package:no_life/game/fases/mapas/sala_tres_portas/portas/sala_enigma_sepulturas/folha_sepultura.dart';
 import 'package:no_life/game/fases/mapas/sala_tres_portas/portas/sala_enigma_sepulturas/sensor/sensor_sepultura.dart';
 import 'package:no_life/game/fases/mapas/sala_tres_portas/sala_tres_portas_fase.dart';
@@ -11,6 +12,7 @@ import 'package:no_life/game/sprites/porta/porta_controller.dart';
 import 'package:no_life/game/sprites/porta/porta_object.dart';
 import 'package:no_life/game/sprites/sepultura/sepultura_object.dart';
 import 'package:no_life/main.dart';
+import 'package:no_life/util/audio/main_menu_audio.dart';
 import 'package:no_life/util/navigator/default_navigator.dart';
 import 'package:no_life/util/sensor/sensor_object.dart';
 import 'package:no_life/util/widgets/aviso_tela_widget.dart';
@@ -23,6 +25,7 @@ class SalaEnigmaSepulturas extends StatefulWidget {
 }
 
 class _SalaEnigmaSepulturasState extends State<SalaEnigmaSepulturas> {
+  final audioMenu = GetIt.I.get<MainAudioGameApp>();
   final playerController =
       BonfireInjector.instance.get<CriancaPlayerController>();
   final portaController = BonfireInjector.instance.get<PortaController>();
@@ -138,6 +141,7 @@ class _SalaEnigmaSepulturasState extends State<SalaEnigmaSepulturas> {
             vector2: Vector2(12, 6),
           ));
     } else if (value == 'buscarFolha') {
+      audioMenu.stopMainMenuMusic();
       DefaultNavigator.nevagarParaOutrosMapas(
           context, const FolhaSepulturaFase());
     } else if (value == 'carta') {

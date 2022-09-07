@@ -2,8 +2,10 @@ import 'dart:math';
 
 import 'package:bonfire/bonfire.dart';
 import 'package:flutter/material.dart';
+import 'package:no_life/game/beta.dart';
 import 'package:no_life/game/sprites/crianca_player.dart';
 import 'package:no_life/main.dart';
+import 'package:no_life/util/navigator/default_navigator.dart';
 import 'package:no_life/util/sensor/sensor_object.dart';
 
 class FolhaSepulturaFase extends StatefulWidget {
@@ -40,5 +42,12 @@ class _FolhaSepulturaFaseState extends State<FolhaSepulturaFase> {
     );
   }
 
-  void _acaoSensor(String value) {}
+  void _acaoSensor(String value) {
+    if (value == 'folha') {
+      DefaultNavigator.nevagarParaOutrosMapas(
+        context,
+        const BetaObrigado(),
+      );
+    }
+  }
 }

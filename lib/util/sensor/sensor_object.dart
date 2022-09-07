@@ -20,3 +20,20 @@ class SensorObject extends GameDecoration with Sensor {
     }
   }
 }
+
+class SensorObjectExterno extends GameDecoration with Sensor {
+  final String id;
+  final ValueChanged<bool> valueChanged;
+
+  SensorObjectExterno(
+      this.id, Vector2 position, Vector2 size, this.valueChanged)
+      : super(
+          position: position,
+          size: size,
+        );
+
+  @override
+  void onContact(collision) {
+    valueChanged(collision is Player);
+  }
+}
